@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">helloworld</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">从开始到现在，从无到有</string>
     <string name="action_settings">Settings</string>
 
 </resources>

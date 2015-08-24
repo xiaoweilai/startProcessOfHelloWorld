@@ -1,5 +1,8 @@
 package com.example.starthelloworld;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.support.v7.app.ActionBarActivity;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -8,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 	private Button mButton;
@@ -28,9 +32,28 @@ public class MainActivity extends ActionBarActivity {
 		    	mIntent.setComponent(comp); 
 		    	mIntent.setAction("android.intent.action.VIEW"); 
 		    	startActivity(mIntent);
+		    	
+		        String str;
+		        str = "启动" + "hello world" + "成功！！";
+		        /* 使用系统标准的makeText()方式来产生Toast讯息 */
+		        Toast.makeText(MainActivity.this, "你的愿望： " + str, Toast.LENGTH_LONG).show();
+		        
+		        //跳转到主界面上，即android的主界面上
+				TimerTask task = new TimerTask(){     
+				  	 public void run(){     
+				  	 //execute the task     
+				  		 Intent home = new Intent(Intent.ACTION_MAIN);  
+				  		 home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
+				  		 home.addCategory(Intent.CATEGORY_HOME);  
+				  		 startActivity(home);  
+				 }     
+				};     
+				Timer timer = new Timer();   
+				timer.schedule(task, 5000); //延时5s
+
+		        
 		    }
 		});
-
 	}
 
 	@Override
