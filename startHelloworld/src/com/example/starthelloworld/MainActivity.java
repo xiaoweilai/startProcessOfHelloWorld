@@ -27,8 +27,9 @@ public class MainActivity extends ActionBarActivity {
 		    @Override
 		    public void onClick(View v)
 		    {
+		    	//启动SDL进程
 		    	Intent mIntent = new Intent( ); 
-		    	ComponentName comp = new ComponentName("com.example.helloworld", "com.example.helloworld.MainActivity");     
+		    	ComponentName comp = new ComponentName("org.libsdl.app", "org.libsdl.app.SDLActivity");     
 		    	mIntent.setComponent(comp); 
 		    	mIntent.setAction("android.intent.action.VIEW"); 
 		    	startActivity(mIntent);
@@ -37,19 +38,19 @@ public class MainActivity extends ActionBarActivity {
 		        str = "启动" + "hello world" + "成功！！";
 		        /* 使用系统标准的makeText()方式来产生Toast讯息 */
 		        Toast.makeText(MainActivity.this, "你的愿望： " + str, Toast.LENGTH_LONG).show();
-		        
-		        //跳转到主界面上，即android的主界面上
-				TimerTask task = new TimerTask(){     
-				  	 public void run(){     
-				  	 //execute the task     
-				  		 Intent home = new Intent(Intent.ACTION_MAIN);  
-				  		 home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
-				  		 home.addCategory(Intent.CATEGORY_HOME);  
-				  		 startActivity(home);  
-				 }     
-				};     
-				Timer timer = new Timer();   
-				timer.schedule(task, 5000); //延时5s
+//		        
+//		        //跳转到主界面上，即android的主界面上
+//				TimerTask task = new TimerTask(){     
+//				  	 public void run(){     
+//				  	 //execute the task     
+//				  		 Intent home = new Intent(Intent.ACTION_MAIN);  
+//				  		 home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
+//				  		 home.addCategory(Intent.CATEGORY_HOME);  
+//				  		 startActivity(home);  
+//				 }     
+//				};     
+//				Timer timer = new Timer();   
+//				timer.schedule(task, 5000); //延时5s
 
 		        
 		    }
